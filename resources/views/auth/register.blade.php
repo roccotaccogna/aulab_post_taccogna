@@ -1,12 +1,4 @@
 <x-layout>
-    {{-- <div class="container-fluid p-5 bg-info text-center text-white">
-        <div class="row justify-content-center">
-            <h1 class="display-1">
-                Registrati
-            </h1>
-        </div>
-    </div> --}}
-
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
@@ -15,6 +7,30 @@
                     @csrf
                     <h3 class="text-center title"> Registrati </h3>
                     <div class="mb-3">
+                        <label for="firstName" class="form-label">Nome: </label>
+                        <input type="text" name="firstName" id="firstName" class="form-control @error('firstName') is-invalid @enderror">
+                        @error('firstName')
+                         <div class="alert alert-danger"> {{$message}} </div>
+                        @enderror
+
+                        <label for="surname" class="form-label">Cognome: </label>
+                        <input type="text" name="surname" id="surname" class="form-control @error('surname') is-invalid @enderror">
+                        @error('surname')
+                         <div class="alert alert-danger"> {{$message}} </div>
+                        @enderror
+
+                        <label for="city" class="form-label">Città: </label>
+                        <input type="text" name="city" id="city" class="form-control @error('city') is-invalid @enderror">
+                        @error('city')
+                         <div class="alert alert-danger"> {{$message}} </div>
+                        @enderror
+
+                        <label for="dateBirth" class="form-label">Data di nascita: </label>
+                        <input type="date" name="dateBirth" id="dateBirth" class="form-control @error('dateBirth') is-invalid @enderror">
+                        @error('dateBirth')
+                         <div class="alert alert-danger"> {{$message}} </div>
+                        @enderror
+
                         <label for="username" class="form-label">Username: </label>
                         <input type="text" name="name" id="username" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
                         @error('name')

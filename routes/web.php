@@ -26,3 +26,7 @@ Route::get('/article/index', [ArticleController::class, 'index'])->name('article
 Route::get('/articles/show/{article}', [ArticleController::class, 'show'])->name('article.show');
 
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
+
+Route::get('/article/author/{user}', [PublicController::class, 'authorList'])->name('article.authorList');
+
+Route::get('/profile', [PublicController::class, 'profile'])->name('profile');

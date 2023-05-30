@@ -1,4 +1,5 @@
 <x-layout>
+    {{-- PAGINA LISTA ARTICOLI --}}
     <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <h1> Tutti gli Articoli </h1>
@@ -16,7 +17,8 @@
                         <a class="small text-muted fst-italic text-capitalize" href="{{route('article.byCategory', ['category' => $article->category->id])}}">{{$article->category->name}}</a>
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between align-items-center">
-                        Redatto il {{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}
+                        Redatto il {{$article->created_at->format('d/m/Y')}} da 
+                        <a href="{{route('article.authorList', ['user' => $article->user->id])}}">{{$article->user->name}}</a>
                         <a href="{{route('article.show', compact('article'))}}" class="btn btn-info text-white">Leggi</a>
                     </div>
                 </div>

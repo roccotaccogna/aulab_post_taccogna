@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function articles(){
         return $this->hasMany(Article::class);
     }
+
+    public function detail(){
+        return $this->hasOne(Detail::class);
+    }
 }

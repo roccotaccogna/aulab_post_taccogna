@@ -1,4 +1,5 @@
 <x-layout>
+    {{-- PAGINA LISTA ARTICOLI PER CATEGORIA --}}
     <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <h1> Categoria {{$category->name}} </h1>
