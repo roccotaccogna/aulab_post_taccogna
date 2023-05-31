@@ -11,5 +11,4 @@
           <h6 class="card-subtitle mb-2 text-body-secondary">Email: {{Auth::user()->email}}</h6>
         </div>
       </div>
-
 </x-layout>

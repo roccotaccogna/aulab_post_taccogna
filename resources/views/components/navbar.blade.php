@@ -32,7 +32,7 @@
 
               @else
               <li class="nav-item">
-                <a class="nav-link" href="{{route('profile')}}"> Il mio Profilo </a>
+                <a class="nav-link" href="{{route('user.profile')}}"> Il mio Profilo </a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

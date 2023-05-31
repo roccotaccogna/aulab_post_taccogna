@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,6 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 
 Route::get('/article/author/{user}', [PublicController::class, 'authorList'])->name('article.authorList');
 
-Route::get('/profile', [PublicController::class, 'profile'])->name('profile');
+Route::get('/user/profile', [ProfileController::class, 'profile'])->middleware('auth')->name('user.profile');
+
+

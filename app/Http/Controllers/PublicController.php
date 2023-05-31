@@ -17,8 +17,4 @@ class PublicController extends Controller
         $articles = $user->articles;
         return view('article.authorList', compact('user' , 'articles'));
     }
-
-    public function profile(){
-        return view('myprofile');
-    }
 }

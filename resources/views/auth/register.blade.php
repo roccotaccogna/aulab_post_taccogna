@@ -59,7 +59,7 @@
                        @enderror
                     </div>
                     <div class="mt-2">
-                        <button class="btn bg-info text-white">Registrati</button>
+                        <button class="btn bg-info text-white" type="submit">Registrati</button>
                         <p class="small mt-2">Già registrato? <a href="{{route('login')}}">Clicca qui</a></p>
                     </div>
                 </form>
