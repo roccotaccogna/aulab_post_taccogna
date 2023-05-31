@@ -30,6 +30,11 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 
 Route::get('/article/author/{user}', [PublicController::class, 'authorList'])->name('article.authorList');
 
-Route::get('/user/profile', [ProfileController::class, 'profile'])->middleware('auth')->name('user.profile');
+Route::get('/user/profile', [ProfileController::class, 'profile'])->name('user.profile');
+
+Route::get('/user/edit', [ProfileController::class, 'edit'])->name('user.edit');
+
+Route::put('/user/update', [ProfileController::class, 'update'])->name('user.update');
+
 
 
