@@ -2,7 +2,7 @@
 
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 div3">
 
                 <h1> Verifica email </h1>
                 <p> Devi verificare il tuo indirizzo email per accedere alla pagina </p>
