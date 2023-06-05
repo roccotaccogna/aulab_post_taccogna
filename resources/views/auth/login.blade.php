@@ -5,6 +5,13 @@
             <div class="col-12 col-md-8 div2">
 
 
+                @if (session('status'))
+                    <div class="alert alert-success">
+                         {{ session('status') }}
+                    </div>
+                @endif
+
+
                 <form action="{{route('login')}}" class="card p-5 shadow form-main" method="POST">
                     @csrf
                     <h3 class="text-center heading"> Login </h3>
@@ -33,7 +40,8 @@
                     </div>
                     <div class="mt-2">
                         <button id="button">Accedi</button>
-                        <p class="small mt-2">Non sei registrato? <a href="{{route('register')}}">Clicca qui</a></p>
+                        <a href="{{route('password.request')}}" class="backHome">Password dimenticata?</a>
+                        <p class="small mt-2 backHome">Non sei registrato? <a href="{{route('register')}}">Clicca qui</a></p>
                     </div>
                 </form>
             </div>
