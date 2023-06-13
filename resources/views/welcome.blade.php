@@ -13,6 +13,14 @@
         @endif
     </div>
 
+    <div>
+        @if (session ('status2'))
+        <div class="alert alert-danger text-center" role="alert">
+            {{session('status2')}}
+          </div>
+        @endif
+    </div>
+
     <div class="container my-5">
         <div class="row justify-content-around m-auto">
             @foreach($articles as $article)

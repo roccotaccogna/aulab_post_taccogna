@@ -33,17 +33,38 @@
               </li>
 
               @else
+              
               <li class="nav-item">
                 <a class="nav-link text-black" href="{{route('user.profile')}}"> Il mio Profilo </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-black" href="{{route('careers')}}"> Lavora con noi </a>
+              </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   {{Auth::user()->name}}
                 </a>
                 <ul class="dropdown-menu">
+
+                  @if (Auth::user()->is_admin)
+                  <li>
+                    <a class="dropdown-item" href="{{route('admin.dashboard')}}"> Dashboard Amministratore </a>
+                  </li>
+                  @endif
+
+                  @if (Auth::user()->is_revisor)
+                   <li>
+                     <a class="dropdown-item" href="{{route('revisor.dashboard')}}"> Dashboard Revisore </a>
+                   </li>
+                  @endif
+
+                  @if (Auth::user()->is_writer)
                   <li>
                     <a class="dropdown-item" href="{{route('article.create')}}"> Inserisci un articolo </a>
                   </li>
+                  @endif
+
                   <li>
                     <a class="dropdown-item" href="{{route('article.index')}}"> Lista degli articoli </a>
                   </li>

@@ -2,10 +2,14 @@
     --yellow: #FFED00;
     --white: white;
     --blue: rgb(63, 121, 230);
+    --blueblack: #003090;
+    --table: #e7e7e7;
     --card: rgb(244, 244, 244);
+    --danger: #f21919;
+    --success: #07e874;
 }
 
-h1, p {
+h1,h2, p {
     font-family:'Roboto Condensed';
 }
 
@@ -13,6 +17,12 @@ h1, p {
     background-image: url('/storage/app/public/images/newspaper2.jpg');
     background-position: top;
     background-size: cover;
+}
+
+.sfondo2 {
+  background-image: url('/storage/app/public/images/wallpaper.jpg');
+  background-position: top;
+  background-size: cover;
 }
 
 .div3 {
@@ -319,4 +329,90 @@ h1, p {
   justify-content: center;
   align-items:center;
 }
-  
+
+/* TABLE */
+
+.table2 {
+  background-color: var(--blueblack);
+  text-align: center;
+  color: white;
+  font-family:'Roboto Condensed';
+}
+
+.table3 {
+  font-family:'Roboto Condensed';
+  background-color: var(--table);
+  text-align: center;
+}
+
+.read {
+  background-color: #eee;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  width: 10em;
+  border-radius: 1rem;
+  color: var(--blue);
+  box-shadow: 0 0.4rem #dfd9d9;
+ }
+ 
+ .read:active {
+  color: white;
+  box-shadow: 0 0.2rem #dfd9d9;
+  transform: translateY(0.2rem);
+ }
+ 
+ .read:hover:not(:disabled) {
+  background: var(--blue);
+  color: white;
+ }
+
+ .accept {
+  background-color: #eee;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1rem;
+  width: 10em;
+  border-radius: 1rem;
+  color: var(--success);
+  box-shadow: 0 0.4rem #dfd9d9;
+ }
+ 
+ .accept:active {
+  color: white;
+  box-shadow: 0 0.2rem #dfd9d9;
+  transform: translateY(0.2rem);
+ }
+ 
+ .accept:hover:not(:disabled) {
+  background: var(--success);
+  color: white;
+ }
+
+ .reject {
+  background-color: #eee;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1rem;
+  width: 10em;
+  border-radius: 1rem;
+  color: var(--danger);
+  box-shadow: 0 0.4rem #dfd9d9;
+ }
+ 
+ .reject:active {
+  color: white;
+  box-shadow: 0 0.2rem #dfd9d9;
+  transform: translateY(0.2rem);
+ }
+ 
+ .reject:hover:not(:disabled) {
+  background: var(--danger);
+  color: white;
+ }
+
+ .td {
+  overflow: auto;
+ }

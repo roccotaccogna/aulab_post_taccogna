@@ -20,7 +20,12 @@
                 <hr>
                 <p>{{$article->body}}</p>
                 <div class="text-center">
-                    <a href="{{route('article.index')}}" class=" btn button2 my-5">
+                    @if(Auth::user() && Auth::user()->is_revisor)
+                    <a href="{{route('revisor.acceptArticle', compact('article'))}}" class=" btn accept"> Accetta Articolo </a>
+                    <a href="{{route('revisor.rejectArticle', compact('article'))}}" class=" btn reject"> Rifiuta Articolo </a>
+                    @endif
+                    
+                    <a href="{{route('article.index')}}" class=" btn read my-5">
                        Torna Indietro 
                     </a>
                 </div>
