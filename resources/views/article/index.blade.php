@@ -21,9 +21,9 @@
                         @endif
                     </div>
                     
-                    @if($article->tag)
+                    @if($article->tags)
                     <div class="tags">
-                        <p class="badge text-bg-secondary">
+                        <p class="badge text-secondary">
                             @foreach($article->tags as $tag)
                               #{{$tag->name}}
                             @endforeach

@@ -67,9 +67,18 @@
             <div class="col-12">
                 <h2 class="text-center"> Le Categorie della piattaforma </h2>
                 <x-meta-info :metaInfos="$categories" metaType="categorie"></x-meta-info>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="text-center"> Nuove Categorie </h2>
                 <form action="{{route('admin.storeCategory')}}" method="POST" class="d-flex">
                     @csrf
-                    <input type="text" name="name" class="form-controll me-2" placeholder="Inserisci una nuova Categoria">
+                    <input type="text" name="name" class="form-control me-2 inputForm2 @error('name') is-invalid @enderror" placeholder="Inserisci una nuova Categoria">
                     <button type="submit" class="btn accept">Aggiungi</button>
                 </form>
             </div>

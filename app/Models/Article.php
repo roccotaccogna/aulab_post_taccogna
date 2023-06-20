@@ -34,6 +34,7 @@ class Article extends Model
             'title' => $this->title,
             'body' => $this->body,
             'category' => $this->category,
+            'tags' => $this->tags,
         ];
     }
 

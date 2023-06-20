@@ -21,8 +21,8 @@
                 <form action="{{route('admin.editTag',['tag'=>$metaInfo])}}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="text" name="name" placeholder="Nuovo nome Tag" class="form-control w-50 d-inline">
-                    <button type="submit" class="btn accept">Aggiorna</button>
+                    <input type="text" name="name" placeholder="Nuovo nome Tag" class="form-control inputForm d-inline @error('name') is-invalid @enderror">
+                    <button type="submit" class="btn read">Aggiorna</button>
                 </form>
             </td> 
 
@@ -39,8 +39,8 @@
                 <form action="{{route('admin.editCategory', ['category' => $metaInfo])}}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="text" name="name" placeholder="Nuovo Nome" class="form-controll w-50 d-inline">
-                    <button type="submit" class="btn accept">Aggiorna</button>
+                    <input type="text" name="name" placeholder="Nuovo Nome" class="form-control inputForm d-inline @error('name') is-invalid @enderror">
+                    <button type="submit" class="btn read">Aggiorna</button>
                 </form>
             </td>
 

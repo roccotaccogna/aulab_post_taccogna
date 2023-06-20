@@ -25,6 +25,12 @@ h1,h2, p {
   background-size: cover;
 }
 
+.sfondoSearch {
+  background-image: url('/resources/images/search.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
 .div3 {
   margin-top: 150px;
   display: flex;
@@ -423,4 +429,15 @@ h1,h2, p {
 
 .tags{
   text-align: center;
+}
+
+.inputForm {
+  width: 50%;
+  margin-right: 10%;
+  margin-bottom: 3%;
+}
+
+.inputForm2 {
+  width: 40%;
+  font-family:'Roboto Condensed';
 }

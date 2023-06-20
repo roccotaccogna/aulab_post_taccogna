@@ -97,5 +97,5 @@ class AdminController extends Controller
 
         return redirect(route('admin.dashboard'))->with('status', 'Nuova Categoria creata correttamente');
     }
-
+    
 }

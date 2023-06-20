@@ -1,6 +1,6 @@
 <x-layout>
     {{-- PAGINA DELLA RICERCA --}}
-    <div class="container-fluid p-5 text-center text-dark sfondo">
+    <div class="container-fluid p-5 text-center text-dark sfondoSearch">
         <div class="row vh-65 py-5 m-5">
             <h1> Risultati ricerca: {{$query}} </h1>
         </div>
@@ -21,9 +21,9 @@
                         @endif                 
                     </div>
                     
-                    @if($article->tag)
+                    @if($article->tags)
                     <div class="tags">
-                        <p class="badge text-bg-secondary">
+                        <p class="badge text-secondary">
                             @foreach($article->tags as $tag)
                               #{{$tag->name}}
                             @endforeach
