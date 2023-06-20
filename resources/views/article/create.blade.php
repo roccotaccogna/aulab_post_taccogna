@@ -45,6 +45,11 @@
                         <div class="alert alert-danger"> {{$message}} </div>
                        @enderror
                     </div>
+                    <div class="mb-3 inputContainer2">
+                        <label for="tags" class="form-label">Tags: </label>
+                        <input type="text" name="tags" id="tags" class="inputField @error('tags') is-invalid @enderror" value="{{old('tags')}}">
+                        <span class="span">Dividi ogni tag con una virgola</span>
+                    </div>
                     <div class="mt-2">
                         <button id="button">Inserisci Articolo</button>
                         <a href="{{route('homepage')}}" class="backHome"> Torna alla Home</a>

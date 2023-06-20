@@ -26,7 +26,8 @@ class ArticleRequest extends FormRequest
             'subtitle' => 'required|unique:articles|min:5',
             'body' => 'required|min:10',
             'image' => 'image|required',
-            'category' => 'required'
+            'category' => 'required',
+            'tags' => 'required'
         ];
     }
     public function messages(){

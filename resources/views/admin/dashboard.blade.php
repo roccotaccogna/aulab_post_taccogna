@@ -13,6 +13,14 @@
         @endif
     </div>
 
+    <div>
+        @if (session ('status2'))
+        <div class="alert alert-danger text-center" role="alert">
+            {{session('status2')}}
+          </div>
+        @endif
+    </div>
+
 
     <div class="container my-5">
         <div class="row justify-content-center">
@@ -23,6 +31,7 @@
         </div>
     </div>
 
+    <hr>
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -32,11 +41,37 @@
         </div>
     </div>
 
+    <hr>
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="text-center">Richieste per ruolo Redattore</h2>
                 <x-requests-table :roleRequests="$writerRequests" role="redattore"></x-requests-table>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="text-center"> I Tags della piattaforma </h2>
+                <x-meta-info :metaInfos="$tags" metaType="tags"></x-meta-info>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="text-center"> Le Categorie della piattaforma </h2>
+                <x-meta-info :metaInfos="$categories" metaType="categorie"></x-meta-info>
+                <form action="{{route('admin.storeCategory')}}" method="POST" class="d-flex">
+                    @csrf
+                    <input type="text" name="name" class="form-controll me-2" placeholder="Inserisci una nuova Categoria">
+                    <button type="submit" class="btn accept">Aggiungi</button>
+                </form>
             </div>
         </div>
     </div>

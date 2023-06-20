@@ -14,13 +14,13 @@ h1,h2, p {
 }
 
 .sfondo {
-    background-image: url('/storage/app/public/images/newspaper2.jpg');
+    background-image: url('/resources/images/newspaper2.jpg');
     background-position: top;
     background-size: cover;
 }
 
 .sfondo2 {
-  background-image: url('/storage/app/public/images/wallpaper.jpg');
+  background-image: url('/resources/images/wallpaper.jpg');
   background-position: top;
   background-size: cover;
 }
@@ -416,3 +416,11 @@ h1,h2, p {
  .td {
   overflow: auto;
  }
+
+ .span {
+  font-size:small;
+ }
+
+.tags{
+  text-align: center;
+}

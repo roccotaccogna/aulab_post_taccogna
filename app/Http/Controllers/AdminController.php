@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -37,4 +39,63 @@ class AdminController extends Controller
 
         return redirect(route('admin.dashboard'))->with('status', 'Hai correttamente reso Redattore l\'utente scelto');
     }
+
+    public function editTag(Request $request, Tag $tag){
+        $request->validate([
+            'name' => 'required|unique:tags|alpha',
+        ]);
+
+        $tag->update([
+            'name' => strtolower($request->name),
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('status', 'Tag Aggiornato');
+    }
+
+    public function deleteTag(Tag $tag){
+        foreach($tag->articles as $article){
+            $article->tags()->detach($tag);
+        };
+
+        $tag->delete();
+
+        return redirect(route('admin.dashboard'))->with('status2', 'Tag Eliminato');
+
+    }
+
+    public function editCategory(Request $request, Category $category){
+        $request->validate([
+            'name' => 'required|unique:categories|alpha',
+        ]);
+
+        $category->update([
+            'name' => strtolower($request->name),
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('status', 'Categoria Aggiornata');
+    }
+
+    public function deleteCategory(Category $category){
+        foreach($category->articles as $article){
+            $article->update([
+                'category_id' => NULL,
+            ]);
+        }
+        $category->delete();
+
+        return redirect(route('admin.dashboard'))->with('status2', 'Categoria Eliminata');
+    }
+
+    public function storeCategory(Request $request){
+        $request->validate([
+            'name' => 'alpha',
+        ]);
+
+        Category::updateOrCreate([
+            'name' => strtolower($request->name),
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('status', 'Nuova Categoria creata correttamente');
+    }
+
 }
