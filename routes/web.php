@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\GoogleLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,3 +78,7 @@ Route::middleware('revisor')->group(function(){
 });
 
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
+
+Route::get('auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
+
+Route::get('auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
