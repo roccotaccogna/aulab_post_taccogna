@@ -1,7 +1,7 @@
 <x-layout>
     <div class="container-fluid p-5 sfondo2 text-center text-black">
         <header class="row vh-65 py-5 m-5">
-            <h1> Dashboard Revisore </h1>
+            <h1> Dashboard Writer </h1>
         </header>
     </div>
 
@@ -25,16 +25,16 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="text-center"> Articoli da revisionare </h2>
-                <x-articles-table :articles="$unrevisionedArticles"></x-articles-table>
+                <h2 class="text-center"> Articoli in fase di revisione </h2>
+                <x-writer-articles-table :articles="$unrevisionedArticles"></x-writer-articles-table>
             </div>
     </div>
 
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="text-center"> Articoli accettati </h2>
-                <x-articles-table :articles="$acceptedArticles"></x-articles-table>
+                <h2 class="text-center"> Articoli pubblicati </h2>
+                <x-writer-articles-table :articles="$acceptedArticles"></x-writer-articles-table>
             </div>
     </div>
 
@@ -42,7 +42,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="text-center"> Articoli respinti </h2>
-                <x-articles-table :articles="$rejectedArticles"></x-articles-table>
+                <x-writer-articles-table :articles="$rejectedArticles"></x-writer-articles-table>
             </div>
     </div>
 
