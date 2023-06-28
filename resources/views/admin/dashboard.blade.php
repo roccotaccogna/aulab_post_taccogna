@@ -79,7 +79,7 @@
                 <form action="{{route('admin.storeCategory')}}" method="POST" class="d-flex">
                     @csrf
                     <input type="text" name="name" class="form-control me-2 inputForm2 @error('name') is-invalid @enderror" placeholder="Inserisci una nuova Categoria">
-                    <button type="submit" class="btn accept">Aggiungi</button>
+                    <button type="submit" class="btn accept inpButton">Aggiungi</button>
                 </form>
             </div>
         </div>

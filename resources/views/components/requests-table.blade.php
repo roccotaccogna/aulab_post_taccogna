@@ -1,4 +1,7 @@
         <table class="table table-striped table-hover border table-responsive-sm">
+
+          {{-- PAGINA GESTIONE RUOLI NELLE TABELLE --}}
+
          <thead class="table2">
             <tr>
             <th scope="col">#</th>

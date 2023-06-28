@@ -1,4 +1,7 @@
 <x-layout>
+
+    {{-- HOMEPAGE --}}
+
     <div class="container-fluid p-5 sfondo text-center text-black">
         <header class="row vh-65 py-5 m-5">
             <h1> The Aulab Post </h1>
@@ -51,6 +54,7 @@
                     <div class="card-footer text-muted d-flex justify-content-between align-items-center">
                         Redatto il {{$article->created_at->format('d/m/Y')}} da 
                         <a href="{{route('article.authorList', ['user' => $article->user->id])}}" class="card-a2">{{$article->user->name}}</a><br>
+                        <p class="small text-muted fst-italic text-capitalize ">Tempo di Lettura {{$article->readDuration()}} min </p>
                         <a href="{{route('article.show', compact('article'))}}" class="card-a">Leggi</a>
                     </div>
                 </div>

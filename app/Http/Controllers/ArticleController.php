@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
@@ -13,22 +14,19 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
-
+    /* FUNZIONE COSTRUTTORE */
     public function __construct(){
         $this->middleware(['auth', 'verified'])->except('index', 'show', 'articleSearch');
     }
-    /**
-     * Display a listing of the resource.
-     */
+
+    /* FUNZIONE LISTA ARTICOLI */
     public function index()
     {
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.index', compact('articles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    /* FUNZIONE CREAZIONE ARTICOLO */
     public function create()
     {
         return view('article.create');
@@ -46,6 +44,7 @@ class ArticleController extends Controller
             'image' => $request->file('image')->store('public/images'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
+            'slug' => Str::slug($request->title),
         ]);
 
         $tags = explode(',', $request->tags);
@@ -76,9 +75,7 @@ class ArticleController extends Controller
         return view('article.edit', compact('article'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    /* FUNZIONE MODIFICA ARTICOLO */
     public function update(Request $request, Article $article)
     {
         $request->validate([
@@ -95,6 +92,7 @@ class ArticleController extends Controller
             'subtitle' => $request->subtitle,
             'body' => $request->body,
             'category_id' => $request->category,
+            'slug' => Str::slug($request->title),
         ]);
 
         if($request->image){
@@ -122,9 +120,7 @@ class ArticleController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    /* FUNZIONE RIMUOVI ARTICOLO */
     public function destroy(Article $article)
     {
         foreach($article->tags as $tag){
@@ -136,7 +132,7 @@ class ArticleController extends Controller
         return redirect(route('writer.dashboard'))->with('status2', 'Articolo cancellato correttamente');
     }
 
-
+    /* FUNZIONE GESTIONE PER CATEGORIE */
     public function byCategory(Category $category){
         $articles = $category->articles->sortByDesc('created_at')->filter(function($article){
             return $article->is_accepted == true;
@@ -144,6 +140,7 @@ class ArticleController extends Controller
         return view('article.byCategory', compact('category', 'articles'));
     }
 
+    /* FUNZIONE GESTIONE PER REDATTORI */
     public function byWriter(User $user){
         $articles = $user->articles->sortbyDesc('created_at')->filter(function($article){
             return $article->is_accepted == true;
@@ -152,6 +149,7 @@ class ArticleController extends Controller
         return view('article.by-user', compact('user', 'articles'));
     }
 
+    /* FUNZIONE RICERCA ARTICOLO */
     public function articleSearch(Request $request){
         $query = $request->input('query');
         $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();

@@ -22,6 +22,7 @@
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between align-items-center">
                         Redatto il {{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}
+                        <p class="small text-muted fst-italic text-capitalize ">Tempo di Lettura {{$article->readDuration()}} min </p>
                         <a href="{{route('article.show', compact('article'))}}" class="card-a">Leggi</a>
                     </div>
                 </div>

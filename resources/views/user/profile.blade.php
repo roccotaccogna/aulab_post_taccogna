@@ -1,5 +1,7 @@
 <x-layout>
 
+  {{-- PAGINA IL MIO PROFILO --}}
+
   <div>
     @if (session ('status'))
     <div class="alert alert-success text-center" role="alert">

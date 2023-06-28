@@ -1,4 +1,7 @@
 <table class="table table-striped table-hover border table-responsive-sm">
+
+    {{-- PAGINA GESTIONE ARTICOLI NELLE TABELLE DA REDATTORE/WRITER --}}
+
     <thead class="table2">
         <tr>
             <th scope="col">#</th>
@@ -26,7 +29,7 @@
 
             <td>
                 <a href="{{route('article.show', compact('article'))}}" class="btn read">Leggi articolo</a>
-                <a href="{{route('article.edit', compact('article'))}}" class="btn btn-warning text-white">Modica articolo</a>
+                <a href="{{route('article.edit', compact('article'))}}" class="btn standby">Modica articolo</a>
                 <form action="{{route('article.destroy', compact('article'))}}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
