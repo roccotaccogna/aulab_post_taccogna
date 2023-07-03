@@ -8,9 +8,9 @@
         </div>
     </div>
     <div class="container my-5">
-        <div class="row justify-content-around">
-            @foreach($articles as $article)
-             <div class="col-12 col-md-5 col-lg-6">
+        <div class="row justify-content-around"> 
+            @foreach($articles as $article) 
+             <div class="col-12 col-md-5 col-lg-6"> 
                 <div class="card">
                     <img src="{{Storage::url($article->image)}}" class="card-img-top w-100" alt="">
                     <div class="card-body">
@@ -42,6 +42,7 @@
                 </div>
              </div>
             @endforeach
+            <div class="paginate">{{$articles->links('pagination::bootstrap-5')}}</div>
         </div>
     </div>
 </x-layout>

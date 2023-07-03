@@ -12,29 +12,29 @@
                     <h3 class="text-center heading"> Modifica Profilo </h3>
                     <div class="mb-3 inputContainer2">
                         <label for="firstName" class="form-label">Nome: </label>
-                        <input type="text" name="firstName" id="firstName" class="inputField @error('firstName') is-invalid @enderror">
+                        <input type="text" name="firstName" id="firstName" class="inputField @error('firstName') is-invalid @enderror" value="{{Auth::user()->detail->firstName}}">
                         @error('firstName')
                          <div class="alert alert-danger"> {{$message}} </div>
                         @enderror
 
                         <label for="surname" class="form-label">Cognome: </label>
-                        <input type="text" name="surname" id="surname" class="inputField @error('surname') is-invalid @enderror">
+                        <input type="text" name="surname" id="surname" class="inputField @error('surname') is-invalid @enderror" value="{{Auth::user()->detail->surname}}">
                         @error('surname')
                          <div class="alert alert-danger"> {{$message}} </div>
                         @enderror
 
                         <label for="city" class="form-label">Città: </label>
-                        <input type="text" name="city" id="city" class="inputField @error('city') is-invalid @enderror">
+                        <input type="text" name="city" id="city" class="inputField @error('city') is-invalid @enderror" value="{{Auth::user()->detail->city}}">
                         @error('city')
                          <div class="alert alert-danger"> {{$message}} </div>
                         @enderror
 
                         <label for="dateBirth" class="form-label">Data di nascita: </label>
-                        <input type="date" name="dateBirth" id="dateBirth" class="inputField @error('dateBirth') is-invalid @enderror">
+                        <input type="date" name="dateBirth" id="dateBirth" class="inputField @error('dateBirth') is-invalid @enderror" value="{{Auth::user()->detail->dateBirth}}">
                         @error('dateBirth')
                          <div class="alert alert-danger"> {{$message}} </div>
                         @enderror
-                    <div class="mt-2">
+                        
                         <button id="button" type="submit">Modifica profilo</button>
                     </div>
                 </form>

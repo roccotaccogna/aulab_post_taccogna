@@ -58,7 +58,7 @@
 
                     <div class="mb-3 inputContainer2">
                         <label for="tags" class="form-label"> Tags: </label>
-                        <input name="tags" id="tags" class="inputField @error('tags') is-invalid @enderror" value="{{$article->tags->implode('name', ',')}}">
+                        <input name="tags" id="tags" class="inputField @error('tags') is-invalid @enderror" value="{{$article->tags->implode('name' , ',')}}">
                         <span class="span"> Dividi ogni tag con una virgola</span>
                     </div>
 

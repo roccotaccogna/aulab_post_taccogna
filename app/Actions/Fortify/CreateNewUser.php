@@ -24,8 +24,10 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
 
             $messages = [
-                'email.required' => 'Devi inserire il tuo indirizzo Email',
                 'name.required' => 'Devi inserire il tuo Username',
+                'name.string' => 'Username non corretta',
+                'name.max:255' => 'Username non corretta',
+                'name.unique' => 'Username già presente',
                 'firstName.required' => 'Devi inserire il tuo Nome',
                 'firstName.alpha' => 'Il nome può contenere solo lettere',
                 'surname.required' => 'Devi inserire il tuo Cognome',
@@ -37,12 +39,26 @@ class CreateNewUser implements CreatesNewUsers
                 'dateBirth.before' => 'Devi avere 18 anni',
                 'password.required' => 'La Password è richiesta',
                 'password.min:8' => 'Minimo 8 caratteri',
-                'password.regex' => 'Deve contenere almeno una lettera maiuscola, un carattere speciale e un numero'
+                'password.regex' => 'Deve contenere almeno una lettera maiuscola, un carattere speciale e un numero',
+                'password_confirmation.required' => 'La Password è richiesta',
+                'password_confirmation.min:8' => 'Minimo 8 caratteri',
+                'password_confirmation.regex' => 'Deve contenere almeno una lettera maiuscola, un carattere speciale e un numero',
+                'email.required' => 'Devi inserire il tuo indirizzo Email',
+                'email.unique' => 'Email già presente',
+                'email.string' => 'Email non corretta',
+                'email.email' => 'Email non corretta',
+                'email.max:255' => 'Email non corretta',
 
             ],
 
 
-            'name' => ['required', 'string', 'max:255'],
+            'name' => [
+                'required', 
+                'string', 
+                'max:255', 
+                Rule::unique(User::class),
+            ],
+
             'email' => [
                 'required',
                 'string',
@@ -60,6 +76,17 @@ class CreateNewUser implements CreatesNewUsers
                 'regex:/[0-9]/',
                 'regex:/[@$!%*#?&]/',
             ],
+
+            'password_confirmation' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
+            ],
+
             'firstName' => [
                 'required',
                 'alpha'

@@ -11,6 +11,10 @@
               <li class="nav-item">
                 <a class="nav-link text-black" aria-current="page" href="{{route('homepage')}}">Home</a>
               </li>
+              
+              <li class="nav-item">
+                <a class="nav-link text-black" href="{{route('article.index')}}"> Lista degli articoli </a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categorie
@@ -68,9 +72,7 @@
                   </li>
                   @endif
 
-                  <li>
-                    <a class="dropdown-item" href="{{route('article.index')}}"> Lista degli articoli </a>
-                  </li>
+
                   <li><a class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
                   <form action="{{route('logout')}}" id="form-logout" class="d-none" method="POST">
                     @csrf

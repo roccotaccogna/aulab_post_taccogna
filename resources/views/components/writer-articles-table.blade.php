@@ -22,7 +22,7 @@
             <td>{{$article->category->name ?? 'Non Categorizzato'}}</td>
             <td>
                 @foreach($article->tags as $tag)
-                    {{$tag->name}},
+                    {{$tag->name}}
                 @endforeach
             </td> 
             <td>{{$article->created_at->format('d/m/Y')}}</td>

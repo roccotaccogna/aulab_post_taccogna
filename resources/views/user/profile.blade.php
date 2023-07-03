@@ -2,18 +2,18 @@
 
   {{-- PAGINA IL MIO PROFILO --}}
 
-  <div>
-    @if (session ('status'))
-    <div class="alert alert-success text-center" role="alert">
-        {{session('status')}}
-      </div>
-    @endif
-  </div>
-
   <div class="container-fluid p-5 sfondo text-center text-black">
     <header class="row vh-65 py-5 m-5">
         <h1> Il mio Profilo </h1>
     </header>
+</div>
+
+<div>
+  @if (session ('status'))
+  <div class="alert alert-success text-center" role="alert">
+      {{session('status')}}
+    </div>
+  @endif
 </div>
 
     <div class="card m-5">

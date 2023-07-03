@@ -22,11 +22,12 @@ class ArticleController extends Controller
     /* FUNZIONE LISTA ARTICOLI */
     public function index()
     {
-        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        $articles = Article::where('is_accepted', true)->get();
+        $articles = Article::orderBy('created_at', 'desc')->paginate(6);
         return view('article.index', compact('articles'));
     }
 
-    /* FUNZIONE CREAZIONE ARTICOLO */
+    
     public function create()
     {
         return view('article.create');
@@ -106,14 +107,13 @@ class ArticleController extends Controller
         $newTags = [];
 
         foreach($tags as $tag){
-            $newTags = Tag::updateOrCreate([
+            $newTag = Tag::updateOrCreate([
                 'name' => $tag,
             ]);
-            $newTags = $newTags->id;
+            $newTags[] = $newTag->id;
         }
 
         $article->tags()->sync($newTags);
-
         return redirect(route('writer.dashboard'))->with('status', 'Articolo aggiornato correttamente');
 
 

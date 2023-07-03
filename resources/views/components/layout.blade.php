@@ -18,7 +18,7 @@
     </div>
 
 {{-- Footer --}}
-    <footer class="containter-fluid bg-dark">
+    <footer class="container-fluid bg-dark">
         <div class="container">
             <div class="row py-4">
                 <div class="col-12 text-center">

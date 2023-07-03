@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,11 +26,20 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request, User $user){
+
+        // VALIDATE PER LA MODIFICA PROFILO 
+        $request->validate([
+            'firstName' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'city' => 'required|alpha',
+            'dateBirth' => 'required|date|before:' . Carbon::now()->subYears(18)->format('Y-m-d'),
+        ]);
+
         $user = Auth::user()->detail->update([
             'firstName' => $request->firstName,
             'surname' => $request->surname,
             'city' => $request->city,
-            'dateBirth' => $request->dateBirth
+            'dateBirth' => $request->dateBirth,
         ]);
 
         return redirect(route('user.profile'))->with('status', 'Profilo Modificato Correttamente');

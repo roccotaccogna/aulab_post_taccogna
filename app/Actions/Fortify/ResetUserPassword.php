@@ -23,12 +23,25 @@ class ResetUserPassword implements ResetsUserPasswords
             $messages = [
                 'password.required' => 'La Password è richiesta',
                 'password.min:8' => 'Minimo 8 caratteri',
-                'password.regex' => 'Deve contenere almeno una lettera maiuscola, un carattere speciale e un numero'
+                'password.regex' => 'Deve contenere almeno una lettera maiuscola, un carattere speciale e un numero',
+                'password_confirmation.required' => 'La Password deve essere confermata',
+                'password_confirmation.min:8' => 'Minimo 8 caratteri',
+                'password_confirmation.regex' => 'Deve contenere almeno una lettera maiuscola, un carattere speciale e un numero'
 
             ],
 
             // 'password' => $this->passwordRules(),
             'password' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[0-9]/',
+                'regex:/[@$!%*#?&]/',
+            ],
+
+            'password_confirmation' => [
                 'required',
                 'string',
                 'min:8',

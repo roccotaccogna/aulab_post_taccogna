@@ -9,7 +9,7 @@
     --success: #07e874;
 }
 
-h1,h2, p, .inpButton {
+h1,h2, p, .inpButton, .paginate {
     font-family:'Roboto Condensed';
 }
 
@@ -22,7 +22,7 @@ h1,h2, p, .inpButton {
 }
 
 .sfondo2 {
-  background-image: url('/resources/images/wallpaper.jpg');
+  background-image: url('/resources/images/Admin.jpg');
   background-position: top;
   background-size: cover;
 }
@@ -52,6 +52,30 @@ h1,h2, p, .inpButton {
 .navbar2{
     border-color: transparent;
     background-color: transparent;
+}
+
+.navbarAdmin {
+  background-color: rgba(203, 203, 203, 0.986);
+  box-shadow: 10px 5px 5px rgb(31, 29, 29);
+  font-family:'Roboto Condensed';
+}
+
+.window {
+  background-color: rgba(203, 203, 203, 0.986);
+}
+
+.window2 {
+  background-color: rgba(203, 203, 203, 0.986);
+  border-color: black;
+}
+
+.window2:focus {
+  background-color: rgba(203, 203, 203, 0.986);
+}
+
+.window2::placeholder {
+  background-color: rgba(203, 203, 203, 0.986);
+  color:black;
 }
 
 
