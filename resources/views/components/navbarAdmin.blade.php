@@ -15,7 +15,7 @@
             <a class="nav-link dropdown-toggle text-black" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categorie
             </a>
-            <ul class="dropdown-menu window">
+            <ul class="dropdown-menu">
               @foreach($categories as $category)
               <li>
                 <a class="dropdown-item small text-black fst-italic" href="{{route('article.byCategory', ['category' => $category->id])}}"> {{$category->name}} </a>
@@ -45,7 +45,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{Auth::user()->name}}
             </a>
-            <ul class="dropdown-menu window">
+            <ul class="dropdown-menu">
 
               @if (Auth::user()->is_admin)
               <li>
@@ -84,7 +84,7 @@
         </ul>
 
         <form method="GET" action="{{route('article.search')}}" class="d-flex" role="search">
-          <input class="form-control me-2 window2" name="query" type="search" placeholder="Cerca..." aria-label="Search">
+          <input class="form-control me-2" name="query" type="search" placeholder="Cerca..." aria-label="Search">
           <button class="btn btn-outline-success" type="submit"> Cerca </button>
         </form>
       </div>

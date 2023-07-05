@@ -23,6 +23,9 @@ use App\Http\Controllers\GoogleLoginController;
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 Route::middleware('writer')->group(function(){
+
+    // GESTIONE CREAZIONE, MODIFICA E CANCELLAZIONE ARTICOLI
+    
     Route::get('/article/create', [ArticleController::class,'create'])->name('article.create');
 
     Route::post('/article/store', [ArticleController::class,'store'])->name('article.store');
@@ -35,6 +38,8 @@ Route::middleware('writer')->group(function(){
 
 });
 
+// GESTIONE ARTICOLI 
+
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 
 Route::get('/article/{article:slug}/show', [ArticleController::class, 'show'])->name('article.show');
@@ -43,11 +48,15 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 
 Route::get('/article/author/{user}', [PublicController::class, 'authorList'])->name('article.authorList');
 
+// GESTIONE USERS
+
 Route::get('/user/profile', [ProfileController::class, 'profile'])->name('user.profile');
 
 Route::get('/user/edit', [ProfileController::class, 'edit'])->name('user.edit');
 
 Route::put('/user/update', [ProfileController::class, 'update'])->name('user.update');
+
+// GESTIONE DEL LAVORA CON NOI
 
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 
@@ -56,15 +65,31 @@ Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+    // GESTIONE RUOLO AMMINISTRATORE
+
     Route::get('/admin/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('admin.setAdmin');
+
+    Route::get('/admin/{user}/set-admin2', [AdminController::class, 'setAdmin2'])->name('admin.setAdmin2');
+
+    // GESTIONE RUOLO REVISORE
 
     Route::get('/admin/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('admin.setRevisor');
 
+    Route::get('/admin/{user}/set-revisor2', [AdminController::class, 'setRevisor2'])->name('admin.setRevisor2');
+
+    // GESTIONE RUOLO REDATTORE
+
     Route::get('/admin/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
+
+    Route::get('/admin/{user}/set-writer2', [AdminController::class, 'setWriter2'])->name('admin.setWriter2');
+
+    // GESTIONE TAGS
 
     Route::put('/admin/edit/{tag}/tag', [AdminController::class, 'editTag'])->name('admin.editTag');
 
     Route::delete('/admin/delete/{tag}/tag', [AdminController::class, 'deleteTag'])->name('admin.deleteTag');
+
+    // GESTIONE CATEGORIE
 
     Route::put('/admin/edit/{category}/category', [AdminController::class, 'editCategory'])->name('admin.editCategory');
 
@@ -90,7 +115,11 @@ Route::prefix('writer')->middleware('writer')->group(function(){
 
 });
 
+// GESTIONE DELLA RICERCA
+
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
+
+// GESTIONE ACCESSO CON GOOGLE
 
 Route::get('auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
 

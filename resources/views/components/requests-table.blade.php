@@ -21,14 +21,17 @@
 
                    @case('amministratore')
                         <a href="{{route('admin.setAdmin', compact('user'))}}" class="btn read">Attiva ruolo {{$role}}</a>
+                        <a href="{{route('admin.setAdmin2', compact('user'))}}" class="btn reject">Rifiuta ruolo {{$role}}</a>
                         @break
 
                    @case('revisore')
                         <a href="{{route('admin.setRevisor', compact('user'))}}" class="btn read">Attiva ruolo {{$role}}</a>
+                        <a href="{{route('admin.setRevisor2', compact('user'))}}" class="btn reject">Rifiuta ruolo {{$role}}</a>
                         @break
 
                    @case('redattore')
                         <a href="{{route('admin.setWriter', compact('user'))}}" class="btn read">Attiva ruolo {{$role}}</a>
+                        <a href="{{route('admin.setWriter2', compact('user'))}}" class="btn reject">Rifiuta ruolo {{$role}}</a>
                         @break
                 @endswitch
             </td>

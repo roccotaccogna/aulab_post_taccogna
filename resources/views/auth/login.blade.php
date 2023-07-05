@@ -2,17 +2,16 @@
 
     {{-- PAGINA LOGIN --}}
 
+    @if (session('status'))
+        <div class="alert alert-success text-center alertReset" role="alert">
+            {{session('status')}}
+        </div>
+    @endif
+
+
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 div2">
-
-
-                @if (session('status'))
-                    <div class="alert alert-success">
-                         {{ session('status') }}
-                    </div>
-                @endif
-
 
                 <form action="{{route('login')}}" class="card p-5 shadow form-main" method="POST">
                     @csrf

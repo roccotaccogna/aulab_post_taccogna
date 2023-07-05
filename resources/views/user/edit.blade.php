@@ -23,6 +23,12 @@
                          <div class="alert alert-danger"> {{$message}} </div>
                         @enderror
 
+                        <label for="username" class="form-label">Username: </label>
+                        <input type="text" name="name" id="username" class="inputField @error('name') is-invalid @enderror" value="{{Auth::user()->name}}">
+                        @error('name')
+                         <div class="alert alert-danger"> {{$message}} </div>
+                        @enderror
+
                         <label for="city" class="form-label">Città: </label>
                         <input type="text" name="city" id="city" class="inputField @error('city') is-invalid @enderror" value="{{Auth::user()->detail->city}}">
                         @error('city')

@@ -24,6 +24,14 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('status', 'Hai correttamente reso Amministratore l\'utente scelto');
     }
 
+    public function setAdmin2(User $user){
+        $user->update([
+            'is_admin' => false,
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('status2', 'Hai rifiutato l\'utente scelto come Amministratore');
+    }
+
     public function setRevisor(User $user){
         $user->update([
             'is_revisor' => true,
@@ -32,12 +40,28 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('status', 'Hai correttamente reso Revisore l\'utente scelto');
     }
 
+    public function setRevisor2(User $user){
+        $user->update([
+            'is_revisor' => false,
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('status2', 'Hai rifiutato l\'utente scelto come Revisore');
+    }
+
     public function setWriter(User $user){
         $user->update([
             'is_writer' => true,
         ]);
 
         return redirect(route('admin.dashboard'))->with('status', 'Hai correttamente reso Redattore l\'utente scelto');
+    }
+
+    public function setWriter2(User $user){
+        $user->update([
+            'is_writer' => false,
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('status2', 'Hai rifiutato l\'utente scelto come Redattore');
     }
 
     public function editTag(Request $request, Tag $tag){

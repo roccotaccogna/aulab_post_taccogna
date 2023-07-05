@@ -1,7 +1,7 @@
 <x-layoutARW>
     <div class="container-fluid p-5 sfondo2 text-center text-black">
         <header class="row vh-65 py-5 m-5">
-            <h1> Dashboard Revisore </h1>
+            <h1 class="text-white"> Dashboard Revisore </h1>
         </header>
     </div>
 
@@ -47,4 +47,4 @@
     </div>
 
     
-</x-layout>
+</x-layoutARW>
