@@ -32,7 +32,7 @@ class ProfileController extends Controller
         $request->validate([
             'firstName' => 'required|alpha',
             'surname' => 'required|alpha',
-            'name' => ['required',Rule::unique(User::class)],
+            'name' => 'required',
             'city' => 'required|alpha',
             'dateBirth' => 'required|date|before:' . Carbon::now()->subYears(18)->format('Y-m-d'),
         ]);
